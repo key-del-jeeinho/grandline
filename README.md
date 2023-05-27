@@ -1,5 +1,5 @@
 # Grandline Project
-![img](./grandline.png)
+![img](./_image/grandline.png)
 > mysql.conf 튜닝이요? LADP가 뭐에요?
 
 _오랜만에 개발바닥을 보고, 시니어 개발자분과 이야기하며 동기부여를 얻어서 만든 프로젝트._
