@@ -1,0 +1,22 @@
+{
+  "_grandline_version": "1.0.0",
+  "_grandline_active": true,
+  "goals": [
+    {
+      "_id": "8e99f886-2e6e-46a1-a1ab-ff67e894d0d3",
+      "_type": "repeated",
+      "name": "git cli 사용해보기",
+      "description": "git cli에 익숙해지기위해, git cli를 사용해보자",
+      "start_at": "2023.05.27",
+      "subjective_achievement_count": 1
+    },
+    {
+      "_id": "07a27b44-3ed6-4431-bc76-eb58c05dbcd9",
+      "type": "one_off",
+      "name": "grandline project manager 만들기",
+      "description": "grandline.json 같은걸로 프로젝트 정보를 저장하고 생성시키는 cli 만들기",
+      "start_at": "2023.05.27",
+      "subjective_achievement_count": null
+    }
+  ]
+}
