@@ -1,4 +1,4 @@
-package com.raul.grandline.genesis.account.application.port.input
+package com.raul.grandline.genesis.account.application.port.output
 
 import com.raul.grandline.genesis.account.domain.common.AccountEncodedPassword
 import com.raul.grandline.genesis.account.domain.common.AccountRawPassword
