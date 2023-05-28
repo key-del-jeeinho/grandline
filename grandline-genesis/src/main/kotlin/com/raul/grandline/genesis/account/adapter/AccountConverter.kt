@@ -1,6 +1,7 @@
 package com.raul.grandline.genesis.account.adapter
 
 import com.raul.grandline.genesis.account.adapter.data.entity.AccountEntity
+import com.raul.grandline.genesis.account.adapter.http.response.CreateAccountResponse
 import com.raul.grandline.genesis.account.domain.Account
 
 class AccountConverter(
@@ -11,6 +12,13 @@ class AccountConverter(
             uuid = uuid,
             identifier = identifier.value,
             encodedPassword = encodedPassword.value,
+        )
+    }
+
+    infix fun to(toWhat: CreateAccountResponse.Companion): CreateAccountResponse = account.run {
+        CreateAccountResponse(
+            uuid = uuid,
+            identifier = identifier.value,
         )
     }
 
