@@ -1,4 +1,4 @@
-package com.raul.grandline.genesis.account.domain
+package com.raul.grandline.genesis.account.domain.common
 
 @JvmInline
 value class AccountIdentifier(val value: String) {

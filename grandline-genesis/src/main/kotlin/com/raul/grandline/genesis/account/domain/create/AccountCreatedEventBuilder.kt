@@ -1,5 +1,6 @@
-package com.raul.grandline.genesis.account.domain
+package com.raul.grandline.genesis.account.domain.create
 
+import com.raul.grandline.genesis.account.domain.Account
 import java.util.UUID
 
 class AccountCreatedEventBuilder {

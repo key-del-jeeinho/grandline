@@ -1,5 +1,7 @@
 package com.raul.grandline.genesis.account.domain
 
+import com.raul.grandline.genesis.account.domain.common.AccountEncodedPassword
+import com.raul.grandline.genesis.account.domain.create.CreateAccount
 import java.util.UUID
 
 class AccountBuilder {

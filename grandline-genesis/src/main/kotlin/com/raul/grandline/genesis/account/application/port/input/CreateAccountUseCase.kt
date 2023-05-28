@@ -1,7 +1,7 @@
 package com.raul.grandline.genesis.account.application.port.input
 
 import com.raul.grandline.genesis.account.domain.Account
-import com.raul.grandline.genesis.account.domain.CreateAccount
+import com.raul.grandline.genesis.account.domain.create.CreateAccount
 
 interface CreateAccountUseCase {
     fun createAccount(domain: CreateAccount): Account
