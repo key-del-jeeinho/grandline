@@ -12,7 +12,9 @@ import com.raul.grandline.genesis.account.domain.create.AccountCreatedEventBuild
 import com.raul.grandline.genesis.account.domain.create.CreateAccount
 import com.raul.grandline.genesis.global.invoke
 import org.springframework.context.ApplicationEventPublisher
+import org.springframework.stereotype.Service
 
+@Service
 class AccountService(
     private val encodePassword: EncodePasswordOutput,
     private val saveAccount: SaveAccountOutput,
