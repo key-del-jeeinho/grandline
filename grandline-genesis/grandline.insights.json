@@ -1,0 +1,17 @@
+{
+  "_grandline_version": "1.0.0",
+  "_grandline_active": true,
+  "scan": "./insights/{uuid}.md",
+  "insights": [
+    {
+      "_id": "08cb7f85-cd2a-4c28-85e0-f00562b44682",
+      "name": "Spring Actuator의 management.endpoint와 management.endpoints의 차이",
+      "create_at": "2023.05.28"
+    },
+    {
+      "_id": "8182a2ff-7e10-46b4-9db4-9f5b9bdf93ab",
+      "name": "actuator, prometheus, micrometer, grafana",
+      "create_at": "2023.05.28"
+    }
+  ]
+}
