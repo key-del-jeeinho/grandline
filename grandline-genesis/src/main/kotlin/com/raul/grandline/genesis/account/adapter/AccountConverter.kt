@@ -5,20 +5,20 @@ import com.raul.grandline.genesis.account.adapter.http.response.CreateAccountRes
 import com.raul.grandline.genesis.account.domain.Account
 
 class AccountConverter(
-    private val account: Account,
+    private val account: Account
 ) {
     infix fun to(toWhat: AccountEntity.Companion): AccountEntity = account.run {
         AccountEntity(
             uuid = uuid,
             identifier = identifier.value,
-            encodedPassword = encodedPassword.value,
+            encodedPassword = encodedPassword.value
         )
     }
 
     infix fun to(toWhat: CreateAccountResponse.Companion): CreateAccountResponse = account.run {
         CreateAccountResponse(
             uuid = uuid,
-            identifier = identifier.value,
+            identifier = identifier.value
         )
     }
 

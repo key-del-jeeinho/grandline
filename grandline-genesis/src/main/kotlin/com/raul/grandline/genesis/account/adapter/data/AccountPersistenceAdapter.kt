@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component
 
 @Component
 class AccountPersistenceAdapter(
-    private val accountRepository: AccountRepository,
+    private val accountRepository: AccountRepository
 ) : SaveAccountOutput {
     override fun saveAccount(account: Account): Account {
         val entity = convert(account) to AccountEntity

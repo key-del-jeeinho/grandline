@@ -7,7 +7,7 @@ import java.util.UUID
 data class Account(
     val uuid: UUID,
     val identifier: AccountIdentifier,
-    val encodedPassword: AccountEncodedPassword,
+    val encodedPassword: AccountEncodedPassword
 ) {
     companion object
 }

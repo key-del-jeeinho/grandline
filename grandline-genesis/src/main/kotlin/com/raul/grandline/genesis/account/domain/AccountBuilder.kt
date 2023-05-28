@@ -9,7 +9,7 @@ class AccountBuilder {
         return Account(
             uuid = UUID.randomUUID(),
             identifier = data.first.identifier,
-            encodedPassword = data.second,
+            encodedPassword = data.second
         )
     }
     companion object {

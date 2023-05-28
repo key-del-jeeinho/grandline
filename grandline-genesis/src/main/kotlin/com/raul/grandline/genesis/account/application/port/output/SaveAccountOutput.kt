@@ -6,7 +6,7 @@ interface SaveAccountOutput {
     fun saveAccount(account: Account): Account
     companion object {
         operator fun SaveAccountOutput.invoke(
-            account: Account,
+            account: Account
         ): Account = saveAccount(account)
     }
 }

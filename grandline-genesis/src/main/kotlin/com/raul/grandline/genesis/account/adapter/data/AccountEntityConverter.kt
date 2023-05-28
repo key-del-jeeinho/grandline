@@ -6,19 +6,19 @@ import com.raul.grandline.genesis.account.domain.common.AccountEncodedPassword
 import com.raul.grandline.genesis.account.domain.common.AccountIdentifier
 
 class AccountEntityConverter(
-    private val accountEntity: AccountEntity,
+    private val accountEntity: AccountEntity
 ) {
     infix fun to(toWhat: Account.Companion): Account = accountEntity.run {
         Account(
             uuid = uuid,
             identifier = AccountIdentifier(identifier),
-            encodedPassword = AccountEncodedPassword(encodedPassword),
+            encodedPassword = AccountEncodedPassword(encodedPassword)
         )
     }
 
     companion object {
         infix fun convert(
-            accountEntity: AccountEntity,
+            accountEntity: AccountEntity
         ): AccountEntityConverter = AccountEntityConverter(accountEntity)
     }
 }

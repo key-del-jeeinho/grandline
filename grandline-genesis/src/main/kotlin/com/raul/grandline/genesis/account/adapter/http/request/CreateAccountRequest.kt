@@ -5,5 +5,5 @@ import com.fasterxml.jackson.annotation.JsonProperty
 data class CreateAccountRequest(
     val identifier: String,
     @JsonProperty("password")
-    val rawPassword: String,
+    val rawPassword: String
 )

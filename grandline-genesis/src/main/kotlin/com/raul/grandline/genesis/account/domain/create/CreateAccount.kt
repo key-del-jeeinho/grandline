@@ -5,7 +5,7 @@ import com.raul.grandline.genesis.account.domain.common.AccountRawPassword
 
 data class CreateAccount(
     val identifier: AccountIdentifier,
-    val rawPassword: AccountRawPassword,
+    val rawPassword: AccountRawPassword
 ) {
     companion object
 }

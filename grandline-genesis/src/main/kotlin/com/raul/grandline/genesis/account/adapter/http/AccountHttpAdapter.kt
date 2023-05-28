@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController("/api/v1/account")
 class AccountHttpAdapter(
-    private val createAccount: CreateAccountUseCase,
+    private val createAccount: CreateAccountUseCase
 ) {
     @PostMapping
     fun create(@RequestBody request: CreateAccountRequest): ResponseEntity<CreateAccountResponse> {

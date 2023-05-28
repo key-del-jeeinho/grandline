@@ -8,12 +8,12 @@ class AccountCreatedEventBuilder {
         return AccountCreatedEvent(
             uuid = UUID.randomUUID(),
             identifier = data.identifier,
-            encodedPassword = data.encodedPassword,
+            encodedPassword = data.encodedPassword
         )
     }
     companion object {
         infix fun create(
-            account: AccountCreatedEvent.Companion,
+            account: AccountCreatedEvent.Companion
         ): AccountCreatedEventBuilder = AccountCreatedEventBuilder()
     }
 }

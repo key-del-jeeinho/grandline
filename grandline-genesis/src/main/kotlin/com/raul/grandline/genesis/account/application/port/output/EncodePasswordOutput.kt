@@ -7,7 +7,7 @@ interface EncodePasswordOutput {
     fun encodePassword(rawPassword: AccountRawPassword): AccountEncodedPassword
     companion object {
         operator fun EncodePasswordOutput.invoke(
-            rawPassword: AccountRawPassword,
+            rawPassword: AccountRawPassword
         ): AccountEncodedPassword = encodePassword(rawPassword)
     }
 }

@@ -4,7 +4,7 @@ import java.util.UUID
 
 data class CreateAccountResponse(
     val uuid: UUID,
-    val identifier: String,
+    val identifier: String
 ) {
     companion object
 }
