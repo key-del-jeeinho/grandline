@@ -8,8 +8,12 @@ spring:
     username: root
     password: ${MYSQL_ROOT_PASSWORD}
 management:
-    endpoints:
-      enabled-by-default: true
-      web:
-        exposure:
-          include: "*" #use asterisk only local
+  endpoint:
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*" #use asterisk only local
