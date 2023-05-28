@@ -10,9 +10,11 @@ import com.raul.grandline.genesis.account.domain.create.CreateAccount
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
-@RestController("/api/v1/account")
+@RestController
+@RequestMapping("/api/v1/account")
 class AccountHttpAdapter(
     private val createAccount: CreateAccountUseCase
 ) {
