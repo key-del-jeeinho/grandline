@@ -3,6 +3,7 @@
         "target": "es2022",
         "module": "CommonJS",
         "outDir": "dist",
-        "strict": true
+        "strict": true,
+        "resolveJsonModule": true
     }
 }
