@@ -11,4 +11,7 @@ export default function () {
     const response = http.post(url, JSON.stringify(data), {
         headers: { "Content-Type": "application/json" },
     })
+    check(response, {
+        "is success": (r) => r.status/100 === 2
+    })
 }
