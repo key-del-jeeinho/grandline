@@ -2,7 +2,7 @@
   "name": "grandline-cli",
   "version": "1.0.0",
   "description": "cli application for grandline project",
-  "main": "index.js",
+  "main": "./src/index.js",
   "bin": {
     "grandline-cli": "./dist/index.js"
   },
