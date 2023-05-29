@@ -7,6 +7,9 @@ spring:
     url: jdbc:mysql://localhost:3306/grandline_genesis?characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
     username: root
     password: ${MYSQL_ROOT_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: create
 management:
   endpoint:
     metrics:
