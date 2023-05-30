@@ -24,3 +24,6 @@ export class SimepleProject implements Project {
     start_at: Moment = moment()
     tags: string[][]
 }
+
+export const OFFICIAL_PROJECT_PREFIX = "grandline-"
+export const UNOFFICIAL_PROJECT_PREFIX = "redline-"
