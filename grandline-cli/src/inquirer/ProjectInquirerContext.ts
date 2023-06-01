@@ -22,10 +22,26 @@ export class SimpleProjectInquirerContextBuilder implements ProjectInquirerConte
     #projectDescription: string | undefined
     #projectTags: ProjectTag[] | undefined
 
+    static of(
+        {
+            projectName, projectDescription, projectTags
+        }: {
+            projectName?: string | undefined,
+            projectDescription?: string | undefined,
+            projectTags?: ProjectTag[] | undefined
+        }
+    ) {
+        return new SimpleProjectInquirerContextBuilder(
+            projectName, 
+            projectDescription, 
+            projectTags
+        )
+    }
+
     constructor(
         projectName?: string | undefined,
         projectDescription?: string | undefined,
-        projectTags?: ProjectTag[] | undefined  
+        projectTags?: ProjectTag[] | undefined
     ) {
         this.#projectName = projectName
         this.#projectDescription = projectDescription
