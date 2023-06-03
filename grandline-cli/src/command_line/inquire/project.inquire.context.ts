@@ -1,4 +1,4 @@
-import { ProjectTag } from "../interface/ProjectTag"
+import { ProjectTag } from "../../interface/ProjectTag"
 
 export default interface ProjectInquirerContext {
     projectName: string,

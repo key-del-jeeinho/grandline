@@ -1,8 +1,8 @@
 import { gray, bold, italic } from 'colorette'
-import inquireProject from '../../inquirer/ProjectInquirer'
-import ProjectInquirerContext from '../../inquirer/ProjectInquirerContext'
-import inquireContributor from '../../inquirer/ContributorInquirer'
-import ContributorInquirerContext from '../../inquirer/ContributorInquirerContext'
+import inquireProject from '../inquire/project.inquire'
+import ProjectInquirerContext from '../inquire/project.inquire.context'
+import inquireContributor from '../inquire/contributor.inquire'
+import ContributorInquirerContext from '../inquire/contributor.inquire.context'
 import { Command } from 'commander'
 import { GrandLineSuperset } from '../../interface/GrandLineSuperset'
 

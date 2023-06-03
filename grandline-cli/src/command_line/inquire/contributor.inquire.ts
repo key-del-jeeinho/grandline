@@ -1,5 +1,5 @@
-import Contributor, { SimpleContributor } from "../interface/Contributor";
-import ContributorInquirerContext, { ContributorInquirerContextBuilder, SimpleContributorInquirerContextBuilder, complete } from "./ContributorInquirerContext";
+import Contributor, { SimpleContributor } from "../../interface/Contributor";
+import ContributorInquirerContext, { ContributorInquirerContextBuilder, SimpleContributorInquirerContextBuilder, complete } from "./contributor.inquire.context";
 import input from '@inquirer/input'
 
 export default async function inquireContributor(ctx: ContributorInquirerContext): Promise<Contributor> {
