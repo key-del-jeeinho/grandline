@@ -17,5 +17,4 @@ const grandlineCommands: () => {[command in GrandlineCommand] : {initialize: (pr
 export function initializeCommands(program: Command) {
     Object.values(grandlineCommands())
         .map(({initialize}) => initialize(program))
-    program.parse(process.argv)
 }
