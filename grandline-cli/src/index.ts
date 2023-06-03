@@ -2,11 +2,12 @@
 import { program } from 'commander'
 import { gray, bold, italic } from 'colorette'
 import { version } from '../package.json'
-import { randomUUID } from 'crypto'
 import GrandLine from './interface/GrandLine'
 import Contributor from './interface/Contributor'
 import inquireProject from './inquirer/ProjectInquirer'
 import ProjectInquirerContext from './inquirer/ProjectInquirerContext'
+import inquireContributor from './inquirer/ContributorInquirer'
+import ContributorInquirerContext from './inquirer/ContributorInquirerContext'
 
 program.command('init')
     .argument('<projectName>')
@@ -16,16 +17,14 @@ program.command('init')
         const project = await inquireProject({
              projectName: projectName 
         } as ProjectInquirerContext)
+        const mainContributor = await inquireContributor({
+        } as ContributorInquirerContext)
         const grandline = {
             _grandline_version: version,
             _grandline_active: true,
             project: project,
             contributor: [
-                {
-                    _id: randomUUID(),
-                    name: "raul",
-                    email: "develop.raul@gmail.com"
-                }
+                mainContributor
             ] as Contributor[]
         } as GrandLine
 
