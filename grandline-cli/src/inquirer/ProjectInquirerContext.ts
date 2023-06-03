@@ -69,9 +69,15 @@ export class SimpleProjectInquirerContextBuilder implements ProjectInquirerConte
 }
 
 export function complete(builder: ProjectInquirerContextBuilder): ProjectInquirerContext{
+    const projectName = builder.getProjectName()
+    const projectDescription = builder.getProjectDescription()
+    const projectTags = builder.getProjectTags()
+    if(!projectName) throw Error("project name must be defined!")
+    if(!projectDescription) throw Error("project description must be defined!")
+    if(!projectTags) throw Error("project tags must be defined!")
     return {
-        projectName: builder.getProjectName()!,
-        projectDescription: builder.getProjectDescription()!,
-        projectTags: builder.getProjectTags()!,
-    } as ProjectInquirerContext
+        projectName,
+        projectDescription,
+        projectTags
+    }
 }
