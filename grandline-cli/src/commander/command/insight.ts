@@ -3,6 +3,7 @@ import { UUID, randomUUID } from "crypto";
 import moment = require("moment");
 import { version } from "../../../package.json";
 import { Moment } from "moment";
+import { GrandLineSuperset } from "../../interface/GrandLineSuperset";
 
 export function addInsightCommand(program: Command): Command {
     return program.command('insight')
@@ -21,12 +22,10 @@ export function addInsightCommand(program: Command): Command {
                 name: name,
                 create_at: createAt.format("YYYY.MM.DD"),
             }
-            const grandline_insights = {
-                _grandline_version: version,
-                _grandline_active: true,
+            const grandline_insights = GrandLineSuperset({
                 scan: insightsPathTemplate,
                 insights: [insight]
-            }
+            })
             console.log(grandline_insights)
         })
 }
