@@ -1,7 +1,7 @@
 import { Argument, Command } from "commander";
 import { randomUUID } from "crypto";
 import moment = require("moment");
-import { GoalType } from "../../interface/Goal";
+import { GoalType, getInitialSubjectiveAchievement } from "../../interface/Goal";
 
 type GoalTypeArgument = GoalType | string
 
@@ -23,12 +23,4 @@ export function addGoalCommand(program: Command): Command {
             }
             console.log(JSON.stringify(goal, null, 2))
         })
-}
-
-function getInitialSubjectiveAchievement(type: GoalType): number | null {
-    switch(type) {
-        case "repeated": return 0
-        case "one_off": return null
-        default: return 0
-    }
 }

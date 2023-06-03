@@ -15,3 +15,7 @@ export default interface Goal {
     _type: GoalType,
 
 }
+
+export function getInitialSubjectiveAchievement(type: GoalType) {
+    return GoalMetadata[type].initialSubjectiveAchievement
+}
