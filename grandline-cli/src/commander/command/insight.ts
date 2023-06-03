@@ -8,7 +8,7 @@ export function addInsightCommand(program: Command): Command {
     return program.command('insight')
         .argument('<name>', 'name of insight and created file for write detail')
         .action(async (name: string) => {
-            const insightsPathTemplate = "./insights/{name}_{createAt}.md"
+            const insightsPathTemplate = "./insights/{name}_{uuid}.md"
             const uuid = randomUUID()
             const createAt = moment()
             const insightsPath = resolveInsightPathTemplate(insightsPathTemplate, {
@@ -24,7 +24,7 @@ export function addInsightCommand(program: Command): Command {
             const grandline_insights = {
                 _grandline_version: version,
                 _grandline_active: true,
-                scan: insightsPath,
+                scan: insightsPathTemplate,
                 insights: [insight]
             }
             console.log(grandline_insights)
