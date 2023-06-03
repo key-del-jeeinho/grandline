@@ -1,24 +1,15 @@
 import { Command } from "commander";
 import { randomUUID } from "crypto";
 import moment = require("moment");
+import { GoalType } from "../../interface/Goal";
 
-const GoalMetadata = {
-    repeated: {
-        initialSubjectiveAchievement: 0
-    },
-    one_off: {
-        initialSubjectiveAchievement: null
-    }
-}
-type GoalType = keyof(typeof GoalMetadata)
-const GoalType = Object.keys(GoalMetadata)
 type GoalTypeArgument = GoalType | string
 
 export function addGoalCommand(program: Command): Command {
     return program.command('goal')
         .arguments('<name> <description> <type>')
         .action(async (name, description, _type: GoalTypeArgument) => {
-            if(!GoalType.includes(_type) ) throw Error(`type must be one of ${Object.keys(GoalMetadata).join(', ')}`)
+            if(!GoalType.includes(_type) ) throw Error(`type must be one of ${Object.keys(GoalType).join(', ')}`)
             const type = _type as GoalType
             const goal = {
                 _id: randomUUID(),
