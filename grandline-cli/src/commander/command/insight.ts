@@ -1,7 +1,6 @@
 import { Command } from "commander";
 import { UUID, randomUUID } from "crypto";
 import moment = require("moment");
-import { version } from "../../../package.json";
 import { Moment } from "moment";
 import { GrandLineSuperset } from "../../interface/GrandLineSuperset";
 
