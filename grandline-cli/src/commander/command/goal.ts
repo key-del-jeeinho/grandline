@@ -1,4 +1,4 @@
-import { Command } from "commander";
+import { Argument, Command } from "commander";
 import { randomUUID } from "crypto";
 import moment = require("moment");
 import { GoalType } from "../../interface/Goal";
@@ -7,7 +7,9 @@ type GoalTypeArgument = GoalType | string
 
 export function addGoalCommand(program: Command): Command {
     return program.command('goal')
-        .arguments('<name> <description> <type>')
+        .argument('<name>', 'name of the goal that you create')
+        .argument('<description>', 'details of the goal that you create')
+        .addArgument(new Argument('<type>', 'type of goal that you create (ex, repeated)').choices(GoalType))
         .action(async (name, description, _type: GoalTypeArgument) => {
             if(!GoalType.includes(_type) ) throw Error(`type must be one of ${Object.keys(GoalType).join(', ')}`)
             const type = _type as GoalType
