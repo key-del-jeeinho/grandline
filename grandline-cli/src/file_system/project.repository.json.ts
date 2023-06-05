@@ -6,13 +6,21 @@ import { START_AT_FORMAT, startAtFormat } from "./moment.json";
 
 export async function exists(path?: string): Promise<boolean> {
     if(!path) path = getGrandlinePathFromCwd()
-    return existsJson(path)
+    
+    const isGrandlineExists = existsJson(path)
+    if(!isGrandlineExists) return false
+
+    const grandline: Grandline_Json = await readJson(path)
+    const project = grandline.project
+    
+    const isProjectExists = project !== undefined && project._id !== undefined
+    return isProjectExists
 }
 
 export async function save(project: Project, path?: string): Promise<Project> {
     if(!path) path = getGrandlinePathFromCwd()
-    const isExists = await existsJson(path)
-    if(isExists) return update(project, path)
+    const isGrandlineExists = await existsJson(path)
+    if(isGrandlineExists) return update(project, path)
     else return create(project, path)
 }
 
