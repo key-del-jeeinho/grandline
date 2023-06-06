@@ -2,7 +2,7 @@ import { Command } from "commander";
 import { UUID, randomUUID } from "crypto";
 import moment = require("moment");
 import { Moment } from "moment";
-import { GrandLineSuperset } from "../../interface/GrandLineSuperset";
+import { GrandLineSuperset } from "../../global/GrandLineSuperset";
 
 export function addInsightCommand(program: Command): Command {
     return program.command('insight')

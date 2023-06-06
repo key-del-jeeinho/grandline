@@ -1,9 +1,9 @@
 import { UUID } from "crypto"
-import { ProjectTag } from "../interface/ProjectTag"
-import Contributor from "../interface/Contributor"
-import Project from "../interface/Project"
-import { jsonToMoment, momentToJson } from "./moment.json"
-import { GrandLineSuperset } from "../interface/GrandLineSuperset"
+import { ProjectTag } from "../project/ProjectTag"
+import Contributor from "../contributor/Contributor"
+import Project from "../project/Project"
+import { jsonToMoment, momentToJson } from "../../global/json/moment.json"
+import { GrandLineSuperset } from "../../global/GrandLineSuperset"
 
 export type Grandline_Json = GrandLineSuperset<{
     project?: JsonProject

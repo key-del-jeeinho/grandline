@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { program } from 'commander'
-import { initializeCommands } from './command_line/command/_initialize'
+import { initializeCommands } from './global/_initialize.command'
 
 initializeCommands(program)
 program.parse(process.argv)

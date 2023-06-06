@@ -1,7 +1,7 @@
-import { Grandline_Json, contributorToJson, getGrandlinePathFromCwd, jsonToContributor } from "./grandline.json";
-import { exists as existsJson, read as readJson, write as writeJson } from "./_json";
-import { version } from "../../package.json";
-import Contributor from "../interface/Contributor";
+import { Grandline_Json, contributorToJson, getGrandlinePathFromCwd, jsonToContributor } from "../grandline/grandline.json";
+import { exists as existsJson, read as readJson, write as writeJson } from "../../global/json/_json";
+import { version } from "../../../package.json";
+import Contributor from "./Contributor";
 import { UUID } from "crypto";
 
 export async function exists(path?: string): Promise<boolean> {

@@ -1,5 +1,5 @@
-import { save as saveContributor } from "../file_system/contributor.repository.json";
-import Contributor from "../interface/Contributor";
+import { save as saveContributor } from "./contributor.repository.json";
+import Contributor from "./Contributor";
 
 export default async function createContributor(
     contributor: Contributor

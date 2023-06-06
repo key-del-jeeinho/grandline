@@ -1,7 +1,7 @@
 import { Command } from "commander"
-import { addInitCommand } from "./init.command"
-import { addGoalCommand } from "./goal.command"
-import { addInsightCommand } from "./insight.command"
+import { addInitCommand } from "../domain/initialize/initialize.command"
+import { addGoalCommand } from "../domain/goal/goal.command"
+import { addInsightCommand } from "../domain/insight/insight.command"
 
 type GrandlineCommand = "goal" | "init" | "insight"
 

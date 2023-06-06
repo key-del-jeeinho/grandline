@@ -1,8 +1,8 @@
-import Project, { OFFICIAL_PROJECT_PREFIX, SimepleProject, UNOFFICIAL_PROJECT_PREFIX } from "../../interface/Project";
+import Project, { OFFICIAL_PROJECT_PREFIX, SimepleProject, UNOFFICIAL_PROJECT_PREFIX } from "../Project";
 import input from '@inquirer/input'
 import confirm from '@inquirer/confirm'
 import ProjectInquirerContext, { ProjectInquirerContextBuilder, SimpleProjectInquirerContextBuilder, complete } from "./project.inquire.context";
-import { ProjectTag } from "../../interface/ProjectTag";
+import { ProjectTag } from "../ProjectTag";
 
 export default async function inquireProject(ctx: ProjectInquirerContext): Promise<Project> {
     const project: Promise<Project> = Promise.resolve(SimpleProjectInquirerContextBuilder.of(ctx))

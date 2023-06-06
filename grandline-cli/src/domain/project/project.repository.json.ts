@@ -1,7 +1,7 @@
-import Project from "../interface/Project";
-import { exists as existsJson, read as readJson, write as writeJson } from "./_json";
-import { version } from "../../package.json";
-import { Grandline_Json, getGrandlinePathFromCwd, jsonToProject, projectToJson } from "./grandline.json";
+import Project from "./Project";
+import { exists as existsJson, read as readJson, write as writeJson } from "../../global/json/_json";
+import { version } from "../../../package.json";
+import { Grandline_Json, getGrandlinePathFromCwd, jsonToProject, projectToJson } from "../grandline/grandline.json";
 
 export async function exists(path?: string): Promise<boolean> {
     if(!path) path = getGrandlinePathFromCwd()

@@ -1,11 +1,11 @@
 import { gray, bold, italic } from 'colorette'
-import inquireProject from '../inquire/project.inquire'
-import ProjectInquirerContext from '../inquire/project.inquire.context'
-import inquireContributor from '../inquire/contributor.inquire'
-import ContributorInquirerContext from '../inquire/contributor.inquire.context'
+import inquireProject from '../project/inquire/project.inquire'
+import ProjectInquirerContext from '../project/inquire/project.inquire.context'
+import inquireContributor from '../contributor/inquire/contributor.inquire'
+import ContributorInquirerContext from '../contributor/inquire/contributor.inquire.context'
 import { Command } from 'commander'
-import createProject from '../../usecase/project.create'
-import createContributor from '../../usecase/contributor.create'
+import createProject from '../project/project.create'
+import createContributor from '../contributor/contributor.create'
 
 export function addInitCommand(program: Command) {
     return program.command('init')

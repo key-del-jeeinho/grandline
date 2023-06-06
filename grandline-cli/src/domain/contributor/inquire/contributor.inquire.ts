@@ -1,4 +1,4 @@
-import Contributor, { SimpleContributor } from "../../interface/Contributor";
+import Contributor, { SimpleContributor } from "../Contributor";
 import ContributorInquirerContext, { ContributorInquirerContextBuilder, SimpleContributorInquirerContextBuilder, complete } from "./contributor.inquire.context";
 import input from '@inquirer/input'
 

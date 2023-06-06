@@ -1,8 +1,8 @@
 import { Argument, Command } from "commander";
 import { randomUUID } from "crypto";
 import moment = require("moment");
-import { GoalType, getInitialSubjectiveAchievement } from "../../interface/Goal";
-import createGoal from "../../usecase/goal.create";
+import { GoalType, getInitialSubjectiveAchievement } from "./Goal";
+import createGoal from "./goal.create";
 import { bold } from "colorette";
 
 export function addGoalCommand(program: Command): Command {

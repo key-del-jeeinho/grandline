@@ -1,5 +1,5 @@
-import { save as saveProject } from "../file_system/project.repository.json";
-import Project from "../interface/Project";
+import { save as saveProject } from "./project.repository.json";
+import Project from "./Project";
 
 export default async function createProject(
     project: Project

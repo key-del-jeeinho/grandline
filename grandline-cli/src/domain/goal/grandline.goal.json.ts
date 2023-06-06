@@ -1,7 +1,7 @@
 import { UUID } from "crypto"
-import { GrandLineSuperset } from "../interface/GrandLineSuperset"
-import Goal, { GoalType, SubjectiveAchievement } from "../interface/Goal"
-import { jsonToMoment, momentToJson } from "./moment.json"
+import { GrandLineSuperset } from "../../global/GrandLineSuperset"
+import Goal, { GoalType, SubjectiveAchievement } from "./Goal"
+import { jsonToMoment, momentToJson } from "../../global/json/moment.json"
 
 export type Grandline_Goal_Json = GrandLineSuperset<{
     goals: JsonGoal[]
