@@ -10,7 +10,7 @@ const GoalMetadata = {
 }
 export type GoalType = keyof(typeof GoalMetadata)
 export const GoalType = Object.keys(GoalMetadata)
-type SubjectiveAchievement = typeof GoalMetadata[GoalType]["initialSubjectiveAchievement"]
+export type SubjectiveAchievement = typeof GoalMetadata[GoalType]["initialSubjectiveAchievement"]
 
 export default interface Goal {
     _id: UUID,
