@@ -1,5 +1,6 @@
 import { Grandline_Json, contributorToJson, getGrandlinePathFromCwd, jsonToContributor } from "./grandline.json";
 import { exists as existsJson, read as readJson, write as writeJson } from "./_json";
+import { version } from "../../package.json";
 import Contributor from "../interface/Contributor";
 import { UUID } from "crypto";
 
@@ -34,11 +35,7 @@ export async function update(contributor: Contributor, path?: string): Promise<C
         ...grandline,
         contributors: [
             ...grandline.contributors,
-            {
-                _id: contributor._id,
-                name: contributor.name,
-                email: contributor.email
-            }
+            contributorToJson(contributor)
         ]
     }
     await writeJson(path, newGrandline)
@@ -48,7 +45,7 @@ export async function update(contributor: Contributor, path?: string): Promise<C
 export async function create(contributor: Contributor, path?: string): Promise<Contributor> {
     if(!path) path = getGrandlinePathFromCwd()
     const newGrandline: Grandline_Json = {
-        _grandline_version: "version",
+        _grandline_version: version,
         _grandline_active: true,
         contributors: [
             contributorToJson(contributor)
@@ -66,12 +63,12 @@ export async function findById(id: UUID, path?: string): Promise<Contributor | n
 
     const grandline: Grandline_Json = await readJson(path)
     const contributor = grandline.contributors
-                                .find((value) =>value._id === id)
+        .find((value) => value._id === id)
     
     return contributor ? jsonToContributor(contributor) : null
 }
 
-export async function findAll(id: UUID, path?: string): Promise<Contributor[]> {
+export async function findAll(path?: string): Promise<Contributor[]> {
     if(!path) path = getGrandlinePathFromCwd()
 
     const isExists = await existsJson(path)
