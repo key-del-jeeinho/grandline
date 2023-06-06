@@ -1,23 +1,24 @@
-import { ProjectTag } from "../ProjectTag"
+import { ProjectTag } from "./project_tag.domain"
 
-export default interface ProjectInquirerContext {
+export default interface InquireProject {
     projectName: string,
     projectDescription: string,
     projectTags: ProjectTag[],
 }
 
-export interface ProjectInquirerContextBuilder {
-    changeProjectName(projectName: string): ProjectInquirerContextBuilder
+export interface InquireProjectBuilder {
+    changeProjectName(projectName: string): InquireProjectBuilder
     getProjectName(): string | undefined
 
-    changeProjectDescription(projectDescription: string): ProjectInquirerContextBuilder
+    changeProjectDescription(projectDescription: string): InquireProjectBuilder
     getProjectDescription(): string | undefined
 
-    changeProjectTags(projectTags: ProjectTag[]): ProjectInquirerContextBuilder
+    changeProjectTags(projectTags: ProjectTag[]): InquireProjectBuilder
     getProjectTags(): ProjectTag[] | undefined
+    build(): InquireProject
 }
 
-export class SimpleProjectInquirerContextBuilder implements ProjectInquirerContextBuilder{
+export class SimpleProjectInquirerContextBuilder implements InquireProjectBuilder{
     #projectName: string | undefined
     #projectDescription: string | undefined
     #projectTags: ProjectTag[] | undefined
@@ -48,36 +49,35 @@ export class SimpleProjectInquirerContextBuilder implements ProjectInquirerConte
         this.#projectTags = projectTags
     }
 
-    changeProjectName(projectName: string): ProjectInquirerContextBuilder {
+    changeProjectName(projectName: string): InquireProjectBuilder {
         return new SimpleProjectInquirerContextBuilder(projectName, this.#projectDescription, this.#projectTags)
     }
     getProjectName(): string | undefined {
         return this.#projectName
     }
-    changeProjectDescription(projectDescription: string): ProjectInquirerContextBuilder {
+    changeProjectDescription(projectDescription: string): InquireProjectBuilder {
         return new SimpleProjectInquirerContextBuilder(this.#projectName, projectDescription, this.#projectTags)
     }
     getProjectDescription(): string | undefined {
         return this.#projectDescription
     }
-    changeProjectTags(projectTags: ProjectTag[]): ProjectInquirerContextBuilder {
+    changeProjectTags(projectTags: ProjectTag[]): InquireProjectBuilder {
         return new SimpleProjectInquirerContextBuilder(this.#projectName, this.#projectDescription, projectTags)
     }
     getProjectTags(): ProjectTag[] | undefined {
         return this.#projectTags
     }
-}
-
-export function complete(builder: ProjectInquirerContextBuilder): ProjectInquirerContext{
-    const projectName = builder.getProjectName()
-    const projectDescription = builder.getProjectDescription()
-    const projectTags = builder.getProjectTags()
-    if(!projectName) throw Error("project name must be defined!")
-    if(!projectDescription) throw Error("project description must be defined!")
-    if(!projectTags) throw Error("project tags must be defined!")
-    return {
-        projectName,
-        projectDescription,
-        projectTags
+    build(): InquireProject {
+        const projectName = this.getProjectName()
+        const projectDescription = this.getProjectDescription()
+        const projectTags = this.getProjectTags()
+        if(!projectName) throw Error("project name must be defined!")
+        if(!projectDescription) throw Error("project description must be defined!")
+        if(!projectTags) throw Error("project tags must be defined!")
+        return {
+            projectName,
+            projectDescription,
+            projectTags
+        }
     }
 }

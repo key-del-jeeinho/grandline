@@ -1,7 +1,7 @@
 import { UUID, randomUUID } from "crypto";
 import { Moment } from "moment";
 import moment = require("moment");
-import { ProjectTag } from "./ProjectTag";
+import { ProjectTag } from "./project_tag.domain";
 
 export default interface Project {
     _id: UUID,
@@ -11,7 +11,7 @@ export default interface Project {
     tags: ProjectTag[],
 }
 
-export class SimepleProject implements Project {
+export class SimpleProject implements Project {
     constructor(name: string, description: string, tags: ProjectTag[]) {
         this.name = name
         this.description = description

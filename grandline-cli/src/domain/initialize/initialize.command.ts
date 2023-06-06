@@ -1,26 +1,43 @@
 import { gray, bold, italic } from 'colorette'
-import inquireProject from '../project/inquire/project.inquire'
-import ProjectInquirerContext from '../project/inquire/project.inquire.context'
-import inquireContributor from '../contributor/inquire/contributor.inquire'
-import ContributorInquirerContext from '../contributor/inquire/contributor.inquire.context'
+import InquireProject from '../project/domain/inquire_project.domain'
+import InquireContributor from '../contributor/domain/inquire_contributor.domain'
 import { Command } from 'commander'
-import createProject from '../project/project.create'
-import createContributor from '../contributor/contributor.create'
+import { CreateProjectCase } from '../project/usecase/project.usecase.create'
+import { CreateContributorCase } from '../contributor/usecase/contributor.usecase.create'
+import { inject, injectable } from 'inversify'
+import { InquireContributorCase } from '../contributor/usecase/contributor.usecase.inquire'
+import { InquireProjectCase } from '../project/usecase/project.usecase.inquire'
 
-export function addInitCommand(program: Command) {
-    return program.command('init')
-        .argument('[projectName]')
-        .action(async (projectName) => {
-            console.log(bold('🚢 init grandline project...'))
-            console.log(italic(gray('    I smell adventure!')))
-            const project = await inquireProject({
-                projectName: projectName 
-            } as ProjectInquirerContext)
-            createProject(project)
+export interface InitializeCommand {
+    addInitCommand(program: Command): Command
+}
 
-            const mainContributor = await inquireContributor({} as ContributorInquirerContext)
-            createContributor(mainContributor)
+export const InitializeCommand = Symbol.for("InitializeCommand")
 
-            console.log(bold("project initializing complete!"))
-        })
+@injectable()
+export class InitializeCommandImpl {
+    constructor(
+        @inject(CreateProjectCase) private readonly createProjectCase: CreateProjectCase,
+        @inject(InquireProjectCase) private readonly inquireProjectCase: InquireProjectCase,
+        @inject(CreateContributorCase) private readonly createContributorCase: CreateContributorCase,
+        @inject(InquireContributorCase) private readonly inquireContributorCase: InquireContributorCase,
+    ) {}
+
+    addInitCommand(program: Command) {
+        return program.command('init')
+            .argument('[projectName]')
+            .action(async (projectName) => {
+                console.log(bold('🚢 init grandline project...'))
+                console.log(italic(gray('    I smell adventure!')))
+                const project = await this.inquireProjectCase.inquireProject({
+                    projectName: projectName 
+                } as InquireProject)
+                this.createProjectCase.createProject(project)
+
+                const mainContributor = await this.inquireContributorCase.inquireContributor({} as InquireContributor)
+                this.createContributorCase.createContributor(mainContributor)
+
+                console.log(bold("project initializing complete!"))
+            })
+    }
 }
