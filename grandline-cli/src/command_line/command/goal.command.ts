@@ -2,7 +2,6 @@ import { Argument, Command } from "commander";
 import { randomUUID } from "crypto";
 import moment = require("moment");
 import { GoalType, getInitialSubjectiveAchievement } from "../../interface/Goal";
-import { GrandLineSuperset } from "../../interface/GrandLineSuperset";
 import createGoal from "../../usecase/goal.create";
 import { bold } from "colorette";
 
