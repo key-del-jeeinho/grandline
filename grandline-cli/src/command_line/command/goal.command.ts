@@ -3,6 +3,8 @@ import { randomUUID } from "crypto";
 import moment = require("moment");
 import { GoalType, getInitialSubjectiveAchievement } from "../../interface/Goal";
 import { GrandLineSuperset } from "../../interface/GrandLineSuperset";
+import createGoal from "../../usecase/goal.create";
+import { bold } from "colorette";
 
 export function addGoalCommand(program: Command): Command {
     return program.command('goal')
@@ -21,7 +23,8 @@ export function addGoalCommand(program: Command): Command {
                 start_at: startAt,
                 subjective_achievement: subjectiveAchievement,
             }
-            const grandline_goals = GrandLineSuperset({goals: [goal]})
-            console.log(JSON.stringify(grandline_goals, null, 2))
+            createGoal(goal)
+
+            console.log(bold(`new goal created! id: ${uuid}`))
         })
 }
