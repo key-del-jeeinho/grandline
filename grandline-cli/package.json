@@ -25,6 +25,7 @@
     "colorette": "^2.0.20",
     "commander": "^10.0.1",
     "create-require": "^1.1.1",
+    "deprecated-decorator": "^0.1.6",
     "diff": "^4.0.2",
     "fs-extra": "^11.1.1",
     "inversify": "^6.0.1",
