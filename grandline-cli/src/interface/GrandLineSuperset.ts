@@ -12,3 +12,5 @@ export function GrandLineSuperset<T>(obj: T, _version?: string, isActive?: boole
         ...obj,
     }
 }
+
+export type GrandLineSuperset<T> = T & GrandLineSubset
