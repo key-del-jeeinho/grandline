@@ -4,7 +4,8 @@ import ProjectInquirerContext from '../inquire/project.inquire.context'
 import inquireContributor from '../inquire/contributor.inquire'
 import ContributorInquirerContext from '../inquire/contributor.inquire.context'
 import { Command } from 'commander'
-import { GrandLineSuperset } from '../../interface/GrandLineSuperset'
+import createProject from '../../usecase/project.create'
+import createContributor from '../../usecase/contributor.create'
 
 export function addInitCommand(program: Command) {
     return program.command('init')
@@ -15,14 +16,11 @@ export function addInitCommand(program: Command) {
             const project = await inquireProject({
                 projectName: projectName 
             } as ProjectInquirerContext)
-            const mainContributor = await inquireContributor({} as ContributorInquirerContext)
-            const grandline = GrandLineSuperset({
-                project: project,
-                contributor: [
-                    mainContributor
-                ]
-            })
+            createProject(project)
 
-            console.log(JSON.stringify(grandline, null, 2))
+            const mainContributor = await inquireContributor({} as ContributorInquirerContext)
+            createContributor(mainContributor)
+
+            console.log(bold("project initializing complete!"))
         })
 }
