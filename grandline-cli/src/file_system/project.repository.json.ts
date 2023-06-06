@@ -38,7 +38,7 @@ export async function create(project: Project, path?: string): Promise<Project> 
     if(!path) path = getGrandlinePathFromCwd()
     const newGrandline: Grandline_Json = {
         _grandline_version: version,
-        _grnadline_active: true,
+        _grandline_active: true,
         project: projectToJson(project),
         contributors: [],
     }

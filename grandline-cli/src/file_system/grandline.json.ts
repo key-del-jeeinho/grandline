@@ -3,13 +3,12 @@ import { ProjectTag } from "../interface/ProjectTag"
 import Contributor from "../interface/Contributor"
 import Project from "../interface/Project"
 import { jsonToMoment, momentToJson } from "./moment.json"
+import { GrandLineSuperset } from "../interface/GrandLineSuperset"
 
-export type Grandline_Json = {
-    _grandline_version: string,
-    _grnadline_active: true,
+export type Grandline_Json = GrandLineSuperset<{
     project?: JsonProject
     contributors: JsonContributor[]
-}
+}>
 export const getGrandlinePathFromCwd = () => `${process.cwd()}/grandline.json`
 
 export type JsonProject = {
