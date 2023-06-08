@@ -6,9 +6,11 @@ import bindContributor from "../domain/contributor/contributor.inversify";
 import bindInsight from "../domain/insight/insight.inversify";
 import bindProject from "../domain/project/project.inversify";
 import { CentralizedGrandlineCommandInitializer, GrandlineCommandInitializer } from "./_initialize.command";
+import bindGrandline from "../domain/grandline/grandline.inversify";
 
 const container = new Container()
 
+bindGrandline(container)
 bindCommandInitializer(container)
 bindContributor(container)
 bindGoal(container)
