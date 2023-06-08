@@ -1,10 +1,10 @@
 import { inject, injectable } from "inversify";
 import { CreateInsightCase } from "./insight.usecase.create";
 import Insight from "./insight.domain";
-import { InsightRepository } from "./insight.repository";
+import { InsightRepository } from "./repository/insight.repository";
 
 @injectable()
-export class Insightservice implements CreateInsightCase {
+export class InsightService implements CreateInsightCase {
     constructor(
         @inject(InsightRepository) private readonly insightRepository: InsightRepository
     ) {}
