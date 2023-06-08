@@ -6,7 +6,7 @@ import { injectable } from "inversify";
 import { ProjectRepository } from "./project.repository";
 
 @injectable()
-class ProjectRepositoryJsonImpl implements ProjectRepository {
+export class ProjectRepositoryJsonImpl implements ProjectRepository {
     async exists(path?: string): Promise<boolean> {
         if(!path) path = getGrandlinePathFromCwd()
         
