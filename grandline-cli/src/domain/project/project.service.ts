@@ -7,9 +7,10 @@ import { ProjectRepository } from "./repository/project.repository";
 import { ProjectTag } from "./domain/project_tag.domain";
 import input from '@inquirer/input'
 import confirm from '@inquirer/confirm'
+import { InquireOverwriteProjectCase } from "./usecase/project.usecase.inquire_overwrite";
 
 @injectable()
-export class ProjectService implements CreateProjectCase, InquireProjectCase {
+export class ProjectService implements CreateProjectCase, InquireProjectCase, InquireOverwriteProjectCase {
     constructor(
         @inject(ProjectRepository) private readonly projectRepository: ProjectRepository
     ) {}
@@ -32,6 +33,11 @@ export class ProjectService implements CreateProjectCase, InquireProjectCase {
             return project
         })
         return project
+    }
+    
+    async inquireOverwriteProject(): Promise<boolean> {
+        const isOverwrite = confirm({ message: 'already initialized. do you want to overwrite?' })
+        return isOverwrite
     }
 
 
