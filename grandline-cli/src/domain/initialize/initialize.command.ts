@@ -15,7 +15,7 @@ export interface InitializeCommand {
 export const InitializeCommand = Symbol.for("InitializeCommand")
 
 @injectable()
-export class InitializeCommandImpl {
+export class InitializeCommandImpl implements InitializeCommand {
     constructor(
         @inject(CreateProjectCase) private readonly createProjectCase: CreateProjectCase,
         @inject(InquireProjectCase) private readonly inquireProjectCase: InquireProjectCase,
