@@ -9,7 +9,7 @@ import input from '@inquirer/input'
 import confirm from '@inquirer/confirm'
 
 @injectable()
-class ProjectService implements CreateProjectCase, InquireProjectCase {
+export class ProjectService implements CreateProjectCase, InquireProjectCase {
     constructor(
         @inject(ProjectRepository) private readonly projectRepository: ProjectRepository
     ) {}
@@ -20,9 +20,9 @@ class ProjectService implements CreateProjectCase, InquireProjectCase {
     
     inquireProject(inquireProject: InquireProject): Promise<Project> {
         const project: Promise<Project> = Promise.resolve(SimpleProjectInquirerContextBuilder.of(inquireProject))
-        .then(this.inquireProjectName)
-        .then(this.inquireProjectDescription)
-        .then(this.inquireTags)
+        .then((builder) => this.inquireProjectName(builder))
+        .then((builder) => this.inquireProjectDescription(builder))
+        .then((builder) => this.inquireTags(builder))
         .then((builder) => builder.build())
         .then((ctx) => {
             const name = ctx.projectName
