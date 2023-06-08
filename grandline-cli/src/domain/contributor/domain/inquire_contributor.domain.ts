@@ -62,14 +62,3 @@ export class SimpleInquireContributorBuilder implements InquireContributorBuilde
         }
     }
 }
-
-export function complete(ctx: InquireContributorBuilder): InquireContributor {
-    const contributorName = ctx.getContributorName()
-    const contributorEmail = ctx.getContributorEmail()
-    if(!contributorName) throw Error("contributor name must be defined!")
-    if(!contributorEmail) throw Error("contributor email must be defined!")
-    return {
-        contributorName,
-        contributorEmail,
-    }
-}
