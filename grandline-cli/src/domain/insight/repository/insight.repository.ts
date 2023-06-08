@@ -1,4 +1,4 @@
-import Insight from "./insight.domain"
+import Insight from "../insight.domain"
 
 export interface InsightRepository {
     exists(path?: string): Promise<boolean>

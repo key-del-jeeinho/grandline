@@ -1,10 +1,10 @@
-import { getGrandlineInsightPathFromCwd, insightToJson, jsonToInsight } from "./grandline.insight.json";
-import { exists as existsJson, read as readJson, write as writeJson } from "../../global/json/_json";
-import { version } from "../../../package.json";
+import { getGrandlineInsightPathFromCwd, insightToJson, jsonToInsight } from "../grandline.insight.json";
+import { exists as existsJson, read as readJson, write as writeJson } from "../../../global/json/_json";
+import { version } from "../../../../package.json";
 import { injectable } from "inversify";
 import { InsightRepository } from "./insight.repository";
-import Insight from "./insight.domain";
-import { Grandline_Insight_Json } from "./grandline.insight.json";
+import Insight from "../insight.domain";
+import { Grandline_Insight_Json } from "../grandline.insight.json";
 
 @injectable()
 export class InsightRepositoryJsonImpl implements InsightRepository {
