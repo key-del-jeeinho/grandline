@@ -32,7 +32,7 @@ export function resolveInsightPathTemplate({name, uuid, createAt}: InsightPathTe
 
 }
 
-const INSIGHT_CONTENT_PATH_TEMPLATE = "./insights/{name}_{uuid}.md"
+const INSIGHT_CONTENT_PATH_TEMPLATE = "./insights/{name}.{uuid}.md"
 
 interface InsightPathTemplateArguments {
     name: string,
