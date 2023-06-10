@@ -2,7 +2,7 @@ import { UUID } from "crypto"
 import { ProjectTag } from "../project/domain/project_tag.domain"
 import Contributor from "../contributor/domain/contributor.domain"
 import Project from "../project/domain/project.domain"
-import { jsonToMoment, momentToJson } from "../../global/json/moment.json"
+import { jsonToMoment, momentToJson } from "../../global/file/moment.json"
 import { GrandLineSuperset } from "../../global/GrandLineSuperset"
 
 export type Grandline_Json = GrandLineSuperset<{

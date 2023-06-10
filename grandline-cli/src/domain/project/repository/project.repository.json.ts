@@ -1,5 +1,5 @@
 import Project from "../domain/project.domain";
-import { exists as existsJson, read as readJson, write as writeJson } from "../../../global/json/_json";
+import { exists as existsJson, read as readJson, write as writeJson } from "../../../global/file/_json";
 import { version } from "../../../../package.json";
 import { Grandline_Json, getGrandlinePathFromCwd, jsonToProject, projectToJson } from "../../grandline/grandline.json";
 import { injectable } from "inversify";

@@ -1,6 +1,6 @@
 import { injectable } from "inversify"
 import { getGrandlinePathFromCwd } from "./grandline.json"
-import { exists as existsJson } from "../../global/json/_json"
+import { exists as existsJson } from "../../global/file/_json"
 
 export interface ExistsGrandlineOutput {
     exists(): Promise<boolean>

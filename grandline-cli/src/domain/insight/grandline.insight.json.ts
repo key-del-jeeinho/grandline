@@ -1,7 +1,7 @@
 import { GrandLineSuperset } from "../../global/GrandLineSuperset";
 import { UUID } from "crypto";
 import Insight from "./insight.domain";
-import { jsonToMoment, momentToJson } from "../../global/json/moment.json";
+import { jsonToMoment, momentToJson } from "../../global/file/moment.json";
 
 export type Grandline_Insight_Json = GrandLineSuperset<{
     scan: string,

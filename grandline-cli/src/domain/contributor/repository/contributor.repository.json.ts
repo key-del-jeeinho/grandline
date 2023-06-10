@@ -1,5 +1,5 @@
 import { Grandline_Json, contributorToJson, getGrandlinePathFromCwd, jsonToContributor } from "../../grandline/grandline.json";
-import { exists as existsJson, read as readJson, write as writeJson } from "../../../global/json/_json";
+import { exists as existsJson, read as readJson, write as writeJson } from "../../../global/file/_json";
 import { version } from "../../../../package.json";
 import Contributor from "../domain/contributor.domain";
 import { UUID } from "crypto";

@@ -1,4 +1,4 @@
-import { exists as existsJson, read as readJson, write as writeJson } from "../../../global/json/_json";
+import { exists as existsJson, read as readJson, write as writeJson } from "../../../global/file/_json";
 import { version } from "../../../../package.json";
 import { Grandline_Goal_Json, getGrandlineGoalPathFromCwd, goalToJson, jsonToGoal } from "../grandline.goal.json";
 import Goal from "../goal.domain";

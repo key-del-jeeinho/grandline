@@ -3,7 +3,7 @@ import { readJSON, writeJson, pathExists } from 'fs-extra'
 export async function write(
     path: string,
     json: any
-) {
+): Promise<void> {
     return writeJson(path, json, {
         encoding: 'utf-8',
         spaces: 2,
