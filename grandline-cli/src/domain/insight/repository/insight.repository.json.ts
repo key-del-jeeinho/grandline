@@ -1,13 +1,18 @@
 import { getGrandlineInsightPathFromCwd, insightToJson, jsonToInsight } from "../grandline.insight.json";
-import { exists as existsJson, read as readJson, write as writeJson } from "../../../global/json/_json";
+import { exists as existsJson, read as readJson, write as writeJson } from "../../../global/file/_json";
 import { version } from "../../../../package.json";
-import { injectable } from "inversify";
+import { inject, injectable } from "inversify";
 import { InsightRepository } from "./insight.repository";
 import Insight from "../insight.domain";
 import { Grandline_Insight_Json } from "../grandline.insight.json";
+import { InsightContentRepository } from "./insight_content.repository";
 
 @injectable()
 export class InsightRepositoryJsonImpl implements InsightRepository {
+    constructor(
+        @inject(InsightContentRepository) private insightContentRepository: InsightContentRepository
+    ) {}
+
     async exists(path?: string): Promise<boolean> {
         if(!path) path = getGrandlineInsightPathFromCwd()
 
@@ -43,6 +48,7 @@ export class InsightRepositoryJsonImpl implements InsightRepository {
             ]
         }
         await writeJson(path, newGrandline_insight)
+        if(!this.insightContentRepository.exists(insight)) this.insightContentRepository.create(insight)
         return insight
     }
 
@@ -56,6 +62,7 @@ export class InsightRepositoryJsonImpl implements InsightRepository {
                 insightToJson(insight)
             ]
         }
+        if(!this.insightContentRepository.exists(insight)) this.insightContentRepository.create(insight)
         await writeJson(path, newGrandline_insight)
         return insight
     }
