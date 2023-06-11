@@ -9,10 +9,6 @@ import { InsightContentRepository } from "./insight_content.repository";
 
 @injectable()
 export class InsightRepositoryJsonImpl implements InsightRepository {
-    constructor(
-        @inject(InsightContentRepository) private insightContentRepository: InsightContentRepository
-    ) {}
-
     async exists(path?: string): Promise<boolean> {
         if(!path) path = getGrandlineInsightPathFromCwd()
 
@@ -48,7 +44,6 @@ export class InsightRepositoryJsonImpl implements InsightRepository {
             ]
         }
         await writeJson(path, newGrandline_insight)
-        if(!this.insightContentRepository.exists(insight)) this.insightContentRepository.create(insight)
         return insight
     }
 
@@ -62,7 +57,6 @@ export class InsightRepositoryJsonImpl implements InsightRepository {
                 insightToJson(insight)
             ]
         }
-        if(!this.insightContentRepository.exists(insight)) this.insightContentRepository.create(insight)
         await writeJson(path, newGrandline_insight)
         return insight
     }
