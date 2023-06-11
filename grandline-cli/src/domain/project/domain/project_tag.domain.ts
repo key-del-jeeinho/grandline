@@ -1,0 +1,1 @@
+export interface ProjectTag {primary: string, secondary: string[]}

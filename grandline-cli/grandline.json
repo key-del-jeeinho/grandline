@@ -1,0 +1,36 @@
+{
+  "_grandline_version": "1.0.0",
+  "_grandline_active": true,
+  "project": {
+    "_id": "4fb1c75b-4a29-4843-ad7f-87264a857845",
+    "name": "grandline-cli",
+    "description": "cli applicationf for managing grandline project",
+    "start_at": "2023.06.11",
+    "tags": [
+      {
+        "primary": "grandline",
+        "secondary": [
+          "official",
+          "manager-application"
+        ]
+      },
+      {
+        "primary": "cli",
+        "secondary": []
+      },
+      {
+        "primary": "npm",
+        "secondary": [
+          "grandline-cli"
+        ]
+      }
+    ]
+  },
+  "contributors": [
+    {
+      "_id": "7cb979de-23ba-4836-b13c-cf46c3abe40f",
+      "name": "raul",
+      "email": "develop.raul@gmail.com"
+    }
+  ]
+}
