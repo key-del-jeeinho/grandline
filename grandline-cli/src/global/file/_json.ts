@@ -1,9 +1,12 @@
-import { readJSON, writeJson, pathExists } from 'fs-extra'
+import { readJSON, writeJson, pathExists, ensureDir } from 'fs-extra'
+import _path = require('path');
 
 export async function write(
     path: string,
     json: any
 ): Promise<void> {
+    const directoryPath = _path.dirname(path);
+    await ensureDir(directoryPath)
     return writeJson(path, json, {
         encoding: 'utf-8',
         spaces: 2,
