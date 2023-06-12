@@ -1,6 +1,7 @@
 {
   "name": "grandline-cli",
   "version": "1.0.0",
+  "idl_version": "1.0.0",
   "description": "cli application for grandline project",
   "main": "./src/index.js",
   "bin": {
